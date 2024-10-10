@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'folio.apps.FolioConfig',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

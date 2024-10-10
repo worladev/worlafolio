@@ -1,9 +1,12 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 class BioData(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    email = models.EmailField(unique=True)
+    cell_phone1 = PhoneNumberField(unique=True, blank=True)
     headline = models.CharField(max_length=150, blank=True)
     introduction = models.TextField(max_length=200, blank=True)
     profile_image = models.ImageField(upload_to='uploads/profile_pix/', blank=True)
@@ -37,3 +40,16 @@ class Education(models.Model):
     program = models.CharField(max_length=200)
     start_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(auto_now_add=True, blank=True)
+
+
+
+class WorkExperience(models.Model):
+    organization = models.CharField(max_length=200)
+    start_date = models.DateTimeField(auto_now_add=True)
+    end_date = models.DateTimeField(auto_now_add=True, blank=True)
+    position_held = models.CharField(max_length=100)
+    duties = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.position_held
+    
