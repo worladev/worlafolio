@@ -6,7 +6,7 @@ class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
-    cell_phone1 = PhoneNumberField(unique=True, blank=True)
+    phone = PhoneNumberField(unique=True, blank=True)
     headline = models.CharField(max_length=150, blank=True)
     skills = models.CharField(max_length=100, blank=True)
     introduction = models.TextField(max_length=200, blank=True)
