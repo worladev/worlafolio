@@ -1,13 +1,13 @@
 from django.db import models
 from django.forms import CharField
-from typing import List, Union, Optional
+from typing import List
 
 
 # Custom comma separated tags field
 class CustomTagsField(models.Field):
     description = "A custom field for storing a list of tags as a comma-separated-string."
 
-    def _helper(self, value: Optional[Union[str, list]]) -> List[str]:
+    def _helper(self, value: str | list | None) -> list[str]:
         """A helper method to convert string or list to a list of stripped strings"""
         if isinstance(value, list):
             return [x.strip() for x in value]
@@ -15,15 +15,15 @@ class CustomTagsField(models.Field):
             return []
         return [x.strip() for x in value.split(',')]
     
-    def from_db_value(self, value: Optional[str], expression, connection) -> List[str]:
+    def from_db_value(self, value: str | None, expression, connection) -> list[str]:
         """Convert the database value to a Python list."""
         return self._helper(value)
     
-    def to_python(self, value: Optional[Union[str, list]]) -> List[str]:
+    def to_python(self, value: str | list | None) -> list[str]:
         """Convert the input value to a Python list."""
         return self._helper(value)
     
-    def get_prep_value(self, value: Optional[List[str]]) -> str:
+    def get_prep_value(self, value: list[str] | None) -> str:
         """Prepare the value for storage in the database."""
         if value is None:
             return ''
