@@ -21,7 +21,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('folio/', include('folio.urls')),
+    path('', include('folio.urls', namespace="folio")),
 ]
 
 """for development use only"""
