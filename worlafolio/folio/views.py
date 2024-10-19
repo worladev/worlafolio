@@ -3,7 +3,7 @@ from folio.models import User
 
 # Create your views here.
 def index(request):
-    user = User.objects.all()
+    user = User.objects.first()
     context = {
         "user": user,
     }
