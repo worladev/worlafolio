@@ -4,17 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% load django_bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     {% bootstrap_messages %}
 </head>
 <body>
-    <div class="main-body">
-        <header><h6 class="text-success-emphasis">WORLAFOLIO</h6></header>
+    <div class="container-fluid base">
+        <!--TOP NAV ITEM-->
+        <div>
+            <div class="col nav-item vw-100">
+                <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+                    <div class="container-fluid">
+                      <span class="navbar-text">
+                        WORLAFOLIO
+                      </span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!--CONTENT BLOCK-->
         {% block content %}
         {% endblock %}
-        <footer><h3 class="text-bg-dark">FOOTER</h3></footer>
+        
     </div>
 </body>
 </html>
