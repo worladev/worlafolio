@@ -2,13 +2,87 @@
 
 
 {% block content %}
-    <div>
-        <div class="col content-1 vw-100">
-            {% if user.first_name %}
-                <h3 class="text-bg-dark">{{user.first_name}}</h3>
-            {% else %}
-                <h5>Data does not exist.</h5>
-            {% endif %}
+    <div class="pageContent">
+
+        <div class="row">
+            <div class="col">
+                <p class="header">BIO</p>
+            </div>
+        </div>
+
+        <!--PROFILE NAME AND INTRO SECTION-->
+        <div class="row">
+            <div class="col-3">
+                <div class="profile-image-wrapper">
+                    <img src="{{ user.profile_image.url }}" class="card-img-top" alt="...">
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        PROFILE
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{{user.first_name}} (Worlasi) {{user.last_name}}</h5>
+                      <p class="card-text">Software Engineer Trainee</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Intro/Objective</li>
+                    <li class="list-group-item">Skills</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!--PROJECT COROUSEL SECTION-->
+        <div class="row">
+            <div class="col">
+                <p class="header">PROJECTS</p>
+            </div>
+        </div>
+
+        <div class="project-slider">
+            <div class="project-slider-inner">
+                {% for project in projects %}
+                    <div class="project-item">
+                        <div class="project-image">
+                            <img src="{{ project.project_image.url }}" alt="{{ project.title }}">
+                        </div>
+                        <div class="project-text">
+                            <h5>{{ project.title.title }}</h5>
+                            <p>
+                                <a href="{{ project.project_url }}">Check Me Out</a>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        
+
+        <!--CONTACT SECTION-->
+        <div class="row">
+            <div class="col">
+                <p class="header">CONTACT</p>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col d-flex justify-content-center">
+                Contact
+            </div>
+
+            <div class="col d-flex justify-content-center">
+                <div>
+                    <a href="#" class="card-link">Generate Resume</a>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
