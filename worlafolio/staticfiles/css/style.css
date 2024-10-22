@@ -1,8 +1,57 @@
-.base{
-    background-color: aqua;
-    height: 100vh;
-    padding: 0;
+.container-fluid, .row{
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
 }
-.all-width{
-    width: 100vw;
+.baseContainer{
+    background-color: aqua;
+    min-height: 100vh;
+}
+.container-fluid, .navCol{
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+}
+.pageContent{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.card-img-top{
+    border-radius: 15% !important;
+}
+.imageWrapper{
+    width: 12rem;
+    height: 12rem;
+}
+
+/*Slider*/
+
+.project-slider{
+    /* text-align: center; */
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+.project-wrapper{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    transition: transform 0.5s ease;
+    position: relative;
+}
+.project-item{
+    width: 17%;
+    height: auto;
+    padding: 5px;
+    margin: 20px;
+    background: #262626;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+.project-item h5{
+    color: #fff;
+}
+h5{
+    text-align: center;
 }
