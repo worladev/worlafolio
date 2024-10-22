@@ -6,6 +6,7 @@ from folio.fields import CustomTagsField
 # Create your models here.
 class User(models.Model):
     first_name = models.CharField(max_length=50)
+    # middle_name = models.Charfield(max_length=50, blank=True)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     phone = PhoneNumberField(unique=True, blank=True)
@@ -13,7 +14,7 @@ class User(models.Model):
     skills = CustomTagsField(max_length=250)
     introduction = models.TextField(max_length=200, blank=True)
     profile_image = models.ImageField(upload_to='profile_pix/', blank=True)
-    resume = models.FileField(upload_to='resume/', blank=True)
+    resume = models.FileField(upload_to='resume/', blank=True) # generate and save
 
     class Meta:
         verbose_name = 'biodata'
@@ -28,7 +29,7 @@ class Projects(models.Model):
     title = models.CharField(max_length=200)
     project_image = models.ImageField(upload_to='project_image/', blank=True)
     technologies = CustomTagsField(max_length=250)
-    project_url = models.URLField()
+    project_url = models.URLField() # make blank=True
     date_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
