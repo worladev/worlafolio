@@ -7,8 +7,13 @@
     background: #0C090A;
 }
 .header{
+    width: max-content;
+    padding: 1rem;
     color: #fff;
-    justify-items: center;
+    margin: auto;
+    justify-content: center;
+    font-family: cursive;
+    border: 1px solid #000;
 }
 .baseContainer{
     background-color: #2C3539;
@@ -41,6 +46,7 @@
     margin: auto;
 }
 .project-slider[data-animated="true"]{
+    margin: 2rem;
     border: 5px solid #000;
     overflow: hidden;
     mask: linear-gradient(

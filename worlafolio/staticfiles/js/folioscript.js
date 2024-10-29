@@ -1,27 +1,20 @@
-const wrapper = document.querySelector('.testimonial-wrapper');
-const items = document.querySelectorAll('.testimonial-item');
-let index = 0;
+const projectSliders = document.querySelectorAll(".project-slider")
 
-function cloneItems(){
-    items.forEach(item => {
-        const clone = item.cloneNode(true);
-        wrapper.appendChild(clone);
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    addAnimation();
+}
+
+function addAnimation() {
+    projectSliders.forEach((slider) => {
+        slider.setAttribute("data-animated", true);
+
+        const projectSliderInner = slider.querySelector('.project-slider-inner');
+        const sliderContent = Array.from(projectSliderInner.children);
+
+        sliderContent.forEach(item => {
+            const duplicatedItem = item.cloneNode(true);
+            duplicatedItem.setAttribute('aria-hidden', true);
+            projectSliderInner.appendChild(duplicatedItem);
+        });
     });
 }
-
-
-function slideProjects(){
-    index++;
-    if (index >= items.length) {
-        index = 0;
-    }
-    const offset = -index * (items[0].clientWidth + 20);
-    wrapper.style.transform = 'translateX(${offset}px';
-}
-
-function initSlider(){
-    cloneItems();
-    setInterval(slideProjects, 2000);
-}
-
-initSlider();
